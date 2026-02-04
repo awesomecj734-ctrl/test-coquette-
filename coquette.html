@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+    <head> <title>Java Clicks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gwendolyn:wght@400;700&display=swap" rel="stylesheet">
+<style> 
+
+html, body{
+    margin: 0;
+}
+
+        body{
+            min-height: max(100svh, 1800px);
+            background: linear-gradient(#f2dce5,#c196a7);
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #fa9bbe;
+            text-align: center;
+            text-shadow: -1px -1px 0 #000,
+                1px -1px 0 #000,
+                5px 5px 5px #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000,
+                -2px 0px 0 #000,
+                2px 0px 0 #000,
+                0px -2px 0 #000,
+                0px 2px 0 #000;
+        }
+
+        .header{
+            z-index: 3;
+            text-align: left;
+            position: absolute;
+            width: 400px;
+            left: 35%;
+            display: grid;
+            grid-template-columns: repeat(1, 500px);
+            grid-template-rows: repeat(2, 150px);
+        }
+
+        .letter{
+            translate: 2% -120px;
+            position: absolute;
+            font-family: "Gwendolyn";
+            font-size: 400px;
+            width: 400px;
+            height: 400px;
+        }
+
+        .tag{
+            font-size: 150px;
+            font-family: "Gwendolyn";
+        }
+        .line{
+            translate: 10%;
+            color: #fff2e8;
+            font-size: 70px;
+            font-family: "Archivo Black";
+        }
+      
+         img {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+
+
+        .title{
+            height: 300px;
+            right: 3%;
+            translate: 0 1000px;
+            z-index: 3;
+            position: absolute;
+            display: grid;
+            grid-template-columns: repeat(1, 510px);
+            grid-template-rows: repeat(2, 250px);
+            gap: 20px;
+        }
+        .name{
+             transition: opacity 0.3s ease, transform 0.3s ease;
+            color: #fff2e8;
+            translate: -30%;
+            width: 700px;
+            font-size: 270px;
+            font-family: "Gwendolyn";
+        }
+        .sub{
+            font-size: 50px;
+            font-family: "Archivo Black";
+            height: 100px;
+            z-index: 4;
+        }
+
+        .next-container{
+            z-index: 3;
+            left: 5% ;
+            top: 13%;
+            position: absolute;
+            width: clamp(180px, 40vw, 400px);
+            aspect-ratio: 1 / 1;
+            scale: 1.02;
+            translate: 0 800px;
+             opacity: 0.8;
+        }
+
+        .next-container:hover{
+            opacity: 1;
+        }
+
+        .next{
+            z-index: 3;
+            height: 100%;
+            width: 100%;
+             background:#f5bcd8;
+            position: absolute;
+            clip-path: circle(50% at 50% 50%);
+            transition: opacity ease-in-out 1s;
+        }
+
+        .next img{
+            width: 70%;
+            height: 100%;
+        }
+
+        .next-outline{
+            height: 100%;
+            width: 100%;
+            scale: 1.03;
+            background:rgb(0, 0, 0);
+            z-index: 2;
+            position: absolute;
+            clip-path: circle(50% at 50% 50%);
+        }
+
+        div img{
+            width:100%;
+            height: 100%;
+        }
+
+        .menu{
+            translate: 0px 30%;
+            position: absolute;
+            right: 5%;
+            z-index: 5;
+            display: grid;
+            grid-template-columns: repeat(1, 150px);
+            grid-template-rows: repeat(5, 150px);
+            gap: 30px;
+        }
+
+        .numbers{
+            font-family: "Archivo Black";
+            color: black;
+            text-shadow: none;
+            font-size: 35px;
+            translate: -30px 40%;
+            position: absolute;
+            right: 0;
+            z-index: 6;
+            display: grid;
+            grid-template-columns: repeat(1, 50px);
+            grid-template-rows: repeat(5, 50px);
+            gap: 130px;
+        }
+
+        .num{
+            align-items: center;
+            justify-content: center;
+            background:#f5bcd8;
+            clip-path: circle();
+            width: 50px;
+            height: 50px;
+        }
+
+         .numbers-outline{
+            translate: -30px 40%;
+            position: absolute;
+            right: 0;
+            z-index: 5;
+            display: grid;
+            grid-template-columns: repeat(1, 50px);
+            grid-template-rows: repeat(5, 50px);
+            gap: 130px;
+        }
+
+        .num-outline{
+            scale: 1.1;
+            align-items: center;
+            justify-content: center;
+            background:#000000;
+            clip-path: circle();
+            width: 50px;
+            height: 50px;
+        }
+        
+
+        .menu-item{
+            position: relative;
+            overflow: hidden;
+            background-color: #928c8c;
+            border: black 3px solid;
+        }
+
+        .menu-item img{
+            filter: grayscale(50%);
+             display: block;
+            margin: auto;
+            height: 100%;
+            width: 100%;
+        }
+
+         .menu-filter{
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.2;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .menu-item img:not(.menu-filter){
+            position: relative;
+            z-index: 1
+        }
+
+        
+        .active{
+            z-index: 1;
+            position: absolute;
+            translate: 5% 15%;
+            min-width: 850px;
+            max-width: 850px;
+            min-height: 1200px;
+            max-height: 1200px;
+        }
+
+        .active img{
+            width: 100%;
+            height: 100%;
+        }
+        .filter{
+            top: 0;
+            z-index: 2;
+            right: 0;
+            position: fixed;
+            width: 50vw;
+            height: 100%;
+            pointer-events: none;
+            background: #ff7cb3;
+            opacity: 0.8;
+
+        }
+
+        div{
+            border: red 0px solid;
+        }
+
+        .main{
+            position: relative;
+            margin: 35% auto auto auto;
+        }
+
+        @media(min-width: 1400px){
+        
+          .active{
+            translate: 5% 15%;
+            min-width: 1300px;
+            max-width: 1300px;
+            min-height: 1500px;
+            max-height: 1500px;
+        border: red 2px solid;
+        }  
+              .letter{
+            translate: 40% -160px;
+            font-size: 500px;
+        }
+
+        .header{
+            width: 650px;
+            gap: 20px;
+        }
+
+        .tag{
+            width: 650px;
+            font-size: 200px;
+            font-family: "Gwendolyn";
+        }
+        .line{
+            translate: 10%;
+            font-size: 80px;
+            width: 600px;
+        }
+
+        .menu{
+        right: 3%;
+        }
+
+         .next-container{
+            left: 5% ;
+            top: 200px;
+            width: clamp(300px, 60vw, 600px);
+            aspect-ratio: 1 / 1;
+            scale: 1.02;
+        }
+
+        .title{
+            height: 300px;
+            right: 3%;
+            translate: 0 1300px;
+            z-index: 3;
+            grid-template-columns: repeat(1, 650px);
+            grid-template-rows: repeat(2, 300px);
+        }
+        .name{
+            translate: -30%;
+            width: 700px;
+            font-size: 300px;
+            font-family: "Gwendolyn";
+        }
+        .sub{
+            font-size: 80px;
+        }
+
+        }
+    </style></head>
+    <body>
+         
+
+         <section class="main">
+            
+        <div class="letter">F</div>
+        <div class="header">
+            <div class="tag">orever</div>
+            <div class="line ">DIGITALIZED</div>
+        </div>
+
+        <div class="menu">
+            <div class="menu-item"><img src="filter.png" class="menu-filter"><img src="menu-1.png"></div>
+            <div class="menu-item"><img src="filter.png" class="menu-filter"><img src="menu-2.png"></div>
+            <div class="menu-item"><img src="filter.png" class="menu-filter"><img src="menu-3.png"></div>
+            <div class="menu-item"><img src="filter.png" class="menu-filter"><img src="menu-4.png"></div>
+            <div class="menu-item"><img src="filter.png" class="menu-filter"><img src="menu-5.png"></div>
+        </div>
+
+        <div class="numbers">
+            <div class="num">1</div>
+            <div class="num">2</div>
+            <div class="num">3</div>
+            <div class="num">4</div>
+            <div class="num">5</div>
+        </div>
+
+        <div class="numbers-outline">
+            <div class="num-outline"></div>
+            <div class="num-outline"></div>
+            <div class="num-outline"></div>
+            <div class="num-outline"></div>
+            <div class="num-outline"></div>
+        </div>
+
+        <div class="next-container" onclick="change()">
+        <div class="next"><img src="2.png"></div>
+        <div class="next-outline"></div>
+        </div>
+
+       
+        <div class="title">
+            <div class="name">Khloie</div>
+            <div class="sub">JAVA-CLICKS</div>
+        </div>
+
+        <div class="active"><img src="1.png"></div>
+    </section>
+    </body>
+    <script>
+
+        let active = document.querySelector(".active img")
+        let next = document.querySelector(".next img")
+        let name =  document.querySelector(".name")
+        let num = 1;
+
+        function swapImage(img, src) {
+        img.style.opacity = 0;
+        setTimeout(() => {
+        img.src = src;
+        img.style.opacity = 1;
+        }, 200);
+        }
+
+
+
+        next.addEventListener("click", () => {
+            counter(); change();
+        });
+
+        function counter(){
+            num ++
+        if (num > 5){
+            num = 1;
+        }
+        }
+
+        function change() {
+        const names = ["Khloie", "Myka", "Roy", "Them", "Khloie"]
+        const activeImgs = ["1.png", "2.png", "3.png", "4.png", "5.png"]
+        const nextImgs = ["2.png", "3.png", "4.png", "5.png", "1.png"]
+     
+
+        name.innerHTML = names[num - 1]
+        swapImage(active, activeImgs[num - 1])
+        swapImage(next, nextImgs[num - 1])
+        }
+
+    </script>
+</html>
